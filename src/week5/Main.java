@@ -7,7 +7,7 @@ import java.lang.Math;
 public class Main {
     public static void main(String[] args) {
         Main pStudio =new Main();
-        pStudio.J011();
+        pStudio.J012();
     }
 
     void J001() {
@@ -80,4 +80,22 @@ public class Main {
         bmi = (double) weight / (((double) height / 100) * ((double) height / 100));
         System.out.println(bmi >= 25 ? "Yes" : "No");
     }
+
+    void J012() {
+        Scanner in = new Scanner(System.in);
+        double m2_area = in.nextDouble();
+        double pyung_area=m2_area/3.305;
+        System.out.printf("%.1f\n",pyung_area);
+        if (pyung_area < 15) {
+            System.out.println("small");
+        } else if (pyung_area < 30) {
+            System.out.println("normal");
+        } else if (pyung_area < 50) {
+            System.out.println("large");
+        } else {
+            System.out.println("huge");
+        }
+    }
+
+
 }
