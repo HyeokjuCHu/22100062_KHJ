@@ -7,7 +7,7 @@ import java.lang.Math;
 public class Main {
     public static void main(String[] args) {
         Main pStudio =new Main();
-        pStudio.J005();
+        pStudio.J011();
     }
 
     void J001() {
@@ -69,5 +69,15 @@ public class Main {
             }
             System.out.printf("%d", day_count + day);
         }
+    }
+
+    void J011() {
+        Scanner in = new Scanner(System.in);
+        int height, weight;
+        double bmi;
+        height = in.nextInt();
+        weight = in.nextInt();
+        bmi = (double) weight / (((double) height / 100) * ((double) height / 100));
+        System.out.println(bmi >= 25 ? "Yes" : "No");
     }
 }
