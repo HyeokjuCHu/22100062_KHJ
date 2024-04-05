@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Main pStudio =new Main();
-        pStudio.J002();
+        pStudio.J003();
     }
 
     void J001() {
@@ -22,6 +22,15 @@ public class Main {
         double c_degree = in.nextDouble();
         double f_degree = c_degree *1.8 + 32;
         System.out.printf("%.1f",f_degree);
+
+    }
+
+    void J003() {
+        Scanner in = new Scanner(System.in);
+        double m2_area = in.nextDouble();
+        double pyung_area=m2_area/3.305;
+        System.out.printf("%.1f",pyung_area);
+
 
     }
 
