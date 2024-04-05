@@ -1,11 +1,13 @@
 package week5;
 
 import java.util.Scanner;
+import java.lang.Math;
+
 
 public class Main {
     public static void main(String[] args) {
         Main pStudio =new Main();
-        pStudio.J003();
+        pStudio.J004();
     }
 
     void J001() {
@@ -33,4 +35,14 @@ public class Main {
 
     }
 
+    void J004() {
+        double x1,y1;
+        double x2,y2;
+        Scanner in = new Scanner(System.in);
+        x1=in.nextDouble();
+        y1=in.nextDouble();
+        x2=in.nextDouble();
+        y2=in.nextDouble();
+        System.out.printf("%.1f",Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2)));
+    }
 }
