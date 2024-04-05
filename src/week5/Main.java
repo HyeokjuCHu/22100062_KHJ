@@ -7,7 +7,7 @@ import java.lang.Math;
 public class Main {
     public static void main(String[] args) {
         Main pStudio =new Main();
-        pStudio.J004();
+        pStudio.J005();
     }
 
     void J001() {
@@ -44,5 +44,30 @@ public class Main {
         x2=in.nextDouble();
         y2=in.nextDouble();
         System.out.printf("%.1f",Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2)));
+    }
+
+    void J005() {
+        int month, day;
+        int day_count = 0;
+        Scanner in = new Scanner(System.in);
+        month = in.nextInt();
+        day = in.nextInt();
+
+
+        if (month == 1) {
+            System.out.printf("%d", day);
+        } else {
+            day_count+=31;
+            for (int i = 2; i < month; i++) {
+                if (i == 3 || i == 5 || i == 7 || i == 8 || i == 10) {
+                    day_count += 31;
+                } else if (i == 4 || i == 6 || i == 9 || i == 11) {
+                    day_count += 30;
+                } else if (i == 2) {
+                    day_count += 28;
+                }
+            }
+            System.out.printf("%d", day_count + day);
+        }
     }
 }
