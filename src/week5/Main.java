@@ -7,7 +7,7 @@ import java.lang.Math;
 public class Main {
     public static void main(String[] args) {
         Main pStudio =new Main();
-        pStudio.J012();
+        pStudio.J013();
     }
 
     void J001() {
@@ -97,5 +97,34 @@ public class Main {
         }
     }
 
+    void J013(){
+        int kor,eng,math;
+        int total;
+        double average;
+        Scanner in = new Scanner(System.in);
+        kor = in.nextInt();
+        eng = in.nextInt();
+        math = in.nextInt();
+        total=kor+eng+math;
+        average=(double)total/3;
+        System.out.printf("%d %.1f\n",total,average);
+        if(kor>=70){
+            System.out.print("Korean - Pass\n");
+        }else{
+            System.out.print("Korean - Fail\n");
+        }
+
+        if(eng>=70){
+            System.out.print("English - Pass\n");
+        }else{
+            System.out.print("English - Fail\n");
+        }
+
+        if(math>=70){
+            System.out.print("Math - Pass");
+        }else{
+            System.out.print("Math - Fail");
+        }
+    }
 
 }
