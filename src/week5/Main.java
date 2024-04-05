@@ -31,7 +31,6 @@ public class Main {
         double pyung_area=m2_area/3.305;
         System.out.printf("%.1f",pyung_area);
 
-
     }
 
 }
