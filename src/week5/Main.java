@@ -11,27 +11,27 @@ public class Main {
     }
 
     void J001() {
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);//scanner in
         int height = in.nextInt();
         int weight = in.nextInt();
         double bmi;
-        bmi = (double) weight / (((double) height / 100) * ((double) height / 100));
-        System.out.printf("%.1f",bmi);
+        bmi = (double) weight / (((double) height / 100) * ((double) height / 100)); //calculate bmi
+        System.out.printf("%.1f",bmi);//output format
     }
 
     void J002() {
         Scanner in = new Scanner(System.in);
         double c_degree = in.nextDouble();
-        double f_degree = c_degree *1.8 + 32;
-        System.out.printf("%.1f",f_degree);
+        double f_degree = c_degree *1.8 + 32;//calc f_degree from c_degree
+        System.out.printf("%.1f",f_degree);//output format
 
     }
 
     void J003() {
         Scanner in = new Scanner(System.in);
         double m2_area = in.nextDouble();
-        double pyung_area=m2_area/3.305;
-        System.out.printf("%.1f",pyung_area);
+        double pyung_area=m2_area/3.305;//calc pyung_area
+        System.out.printf("%.1f",pyung_area);//output format
 
     }
 
@@ -43,7 +43,7 @@ public class Main {
         y1=in.nextDouble();
         x2=in.nextDouble();
         y2=in.nextDouble();
-        System.out.printf("%.1f",Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2)));
+        System.out.printf("%.1f",Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2)));//using math to calculate distance
     }
 
     void J005() {
@@ -54,10 +54,10 @@ public class Main {
         day = in.nextInt();
 
 
-        if (month == 1) {
+        if (month == 1) {//if Jan, print day only.
             System.out.printf("%d", day);
         } else {
-            day_count+=31;
+            day_count+=31;//January 31days
             for (int i = 2; i < month; i++) {
                 if (i == 3 || i == 5 || i == 7 || i == 8 || i == 10) {
                     day_count += 31;
