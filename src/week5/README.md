@@ -14,10 +14,18 @@ J013
 
 스크린샷 목록
 J001.png
+2 png for different input
 J002.png
+2 png for different input
 J003.png
+2 png for different input
 J004.png
+2 png for different input
 J005.png
+2 png for different input
 J011.png
+2 png for different input
 J012.png
+2 png for different input
 J013.png
+2 png for different input
