@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         week6.Main pStudio =new week6.Main();
-        pStudio.J022();
+        pStudio.J024();
     }
     void J021() {
         Scanner in = new Scanner(System.in);//scanner in
@@ -48,5 +48,47 @@ public class Main {
         System.out.printf("normal - %d\n",count2);
         System.out.printf("large - %d\n",count3);
         System.out.printf("huge - %d",count4);
+    }
+
+    void J023(){
+        int count;
+        int number;
+        int totalsum=0;
+        double average;
+
+        Scanner in = new Scanner(System.in);
+        count=in.nextInt();
+        for(int i=0;i<count;i++){
+            number=in.nextInt();
+            totalsum+=number;
+        }
+        average=(double)totalsum/(double)count;
+        System.out.printf("%d %.1f",totalsum,average);
+    }
+
+    void J024(){
+        int[] numbers = new int[10];
+
+
+        Scanner in = new Scanner(System.in);
+        for(int i=0;i<10;i++){
+            numbers[i]=in.nextInt();
+        }
+        int first=numbers[0];
+        int second=numbers[0];
+        int second_max_index=-1;
+
+        for(int i=0;i<10;i++){
+            if(numbers[i]>first){
+                second = first;
+                second_max_index=i;
+                first=numbers[i];
+            }else if(numbers[i]>second&&numbers[i]!=first){
+                second=numbers[i];
+                second_max_index=i;
+            }
+        }
+
+        System.out.printf("[%d] %d",second_max_index,second);
     }
 }
