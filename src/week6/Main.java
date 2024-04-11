@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         week6.Main pStudio =new week6.Main();
-        pStudio.J024();
+        pStudio.J025();
     }
     void J021() {
         Scanner in = new Scanner(System.in);//scanner in
@@ -90,5 +90,26 @@ public class Main {
         }
 
         System.out.printf("[%d] %d",second_max_index,second);
+    }
+
+    void J025(){
+        int[] monthdays={31,28,31,30,31,30,31,31,30,31,30,31};
+        int month,day;
+        int day_count=0;
+        Scanner in = new Scanner(System.in);
+        month=in.nextInt();
+        day=in.nextInt();
+        if(month>12||month<1||monthdays[month-1]<day){
+            System.out.print("Wrong date!");
+        }else{
+            if(month!=1){
+
+                for(int i=0;i<month-1;i++){
+                    day_count+=monthdays[i];
+                }
+            }
+            day_count+=day;
+            System.out.printf("%d",day_count);
+        }
     }
 }
