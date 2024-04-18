@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         week7.Main pStudio = new week7.Main();
-        pStudio.J033();
+        pStudio.J034();
 
     }
 
@@ -62,6 +62,38 @@ public class Main {
         System.out.print("Longest: "+longest+"\n");
         System.out.print("Shortest: "+shortest);
     }
+
+    void J034(){
+        String[] usernames = {"kim", "lee", "park", "hong", "choi"};
+        String[] passwords = {"1111", "1234", "3456", "3535", "7777"};
+
+        int index1 = -1;
+        String name;
+        String pass;
+        Scanner in = new Scanner(System.in);
+        name = in.nextLine();
+        pass = in.nextLine();
+
+        for (int i = 0; i < usernames.length; i++) {
+            if (name.equals(usernames[i])) {
+                index1 = i;
+                break; // 이름을 찾으면 루프를 종료합니다.
+            }
+        }
+
+        if (index1 == -1) {
+            System.out.print("No user!");
+        } else {
+            if (passwords[index1].equals(pass)) {
+                System.out.print("Login OK!");
+            } else {
+                System.out.print("Incorrect password!");
+            }
+        }
+    }
+
+
+
 }
 
 
