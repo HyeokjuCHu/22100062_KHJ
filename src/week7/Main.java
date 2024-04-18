@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         week7.Main pStudio = new week7.Main();
-        pStudio.J034();
+        pStudio.J035();
 
     }
 
@@ -92,6 +92,40 @@ public class Main {
         }
     }
 
+    void J035(){
+        String date;
+        Scanner in = new Scanner(System.in);
+        date = in.nextLine();
+        int sum=0;
+        for (int i = 0; i < 4; i++) {
+            char c = date.charAt(i);
+            if (Character.isDigit(c)) {
+                int digit = Character.getNumericValue(c);
+                sum += digit;
+            }
+        }
+
+        // 월(2자리) 부분 합산
+        for (int i = 4; i < 6; i++) {
+            char c = date.charAt(i);
+            if (Character.isDigit(c)) {
+                int digit = Character.getNumericValue(c);
+                if(i==4)sum+=digit*10;
+                else sum += digit;
+            }
+        }
+
+        // 일(2자리) 부분 합산
+        for (int i = 6; i < 8; i++) {
+            char c = date.charAt(i);
+            if (Character.isDigit(c)) {
+                int digit = Character.getNumericValue(c);
+                if(i==6)sum+=digit*10;
+                else sum += digit;
+            }
+        }
+        System.out.print(sum);
+    }
 
 
 }
