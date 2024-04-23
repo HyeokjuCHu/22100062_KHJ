@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         week7.Main pStudio = new week7.Main();
-        pStudio.J035();
+        pStudio.J031();
 
     }
 
@@ -126,6 +126,71 @@ public class Main {
         }
         System.out.print(sum);
     }
+
+    void J036(){
+        String str;
+        String strC="";
+        String reverse="";
+        Scanner in = new Scanner(System.in);//scanner in
+
+        str=in.nextLine();
+        str=str.toLowerCase();
+
+        for(int i=0;i<str.length();i++){
+            char c = str.charAt(i);
+            if(Character.isAlphabetic(c))
+                strC += str.charAt(i);
+        }
+        for(int i=str.length() - 1; i >= 0;i--){
+            char c = str.charAt(i);
+            if(Character.isAlphabetic(c))
+                reverse += str.charAt(i);
+        }
+        if(strC.equals(reverse)){
+            System.out.print("Yes");
+        }else
+            System.out.print("No");
+    }
+
+    void J037() {
+        Scanner in = new Scanner(System.in);
+
+        // Read input strings
+        String s1 = in.nextLine();
+        String s2 = in.nextLine();
+
+        // Remove non-alphabetic characters and convert to lowercase
+        String cleanS1 = s1.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        String cleanS2 = s2.replaceAll("[^a-zA-Z]", "").toLowerCase();
+
+        // Check lengths of cleaned strings
+        if (cleanS1.length() != cleanS2.length()) {
+            System.out.print("No");
+            return;
+        }
+
+        // Count frequency of characters in both strings
+        int[] charCount = new int[26]; // Assuming only lowercase alphabets
+        for (char c : cleanS1.toCharArray()) {
+            charCount[c - 'a']++;
+        }
+        for (char c : cleanS2.toCharArray()) {
+            charCount[c - 'a']--;
+        }
+
+        // Check if all character counts are zero
+        for (int count : charCount) {
+            if (count != 0) {
+                System.out.print("No");
+                return;
+            }
+        }
+
+        // If all characters match in frequency
+        System.out.print("Yes");
+    }
+
+
 
 
 }
