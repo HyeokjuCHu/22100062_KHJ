@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         week7.Main pStudio = new week7.Main();
-        pStudio.J031();
+        pStudio.J035();
 
     }
 
