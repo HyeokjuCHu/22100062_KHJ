@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Main pStudio = new Main();
-        pStudio.J045();
+        pStudio.J043();
     }
 
     class Lotto {
@@ -124,6 +124,11 @@ public class Main {
 
         int matchedNumbers = lotto.checkLotto(userNumbers);
         System.out.println("You matched " + matchedNumbers + " numbers.");
+        if(matchedNumbers==6){
+            System.out.println("You win the LOTTO!");
+        }else{
+            System.out.println("You lose the LOTTO!");
+        }
     }
 
     class MakePW {
