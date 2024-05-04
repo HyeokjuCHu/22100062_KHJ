@@ -14,9 +14,23 @@ public class Main {
 
         public Lotto() {
             numbers=new int[6];
+            remakeAuto();
         }
 
         public void printNumbers() {
+            int temp;
+            for(int i=0;i<5;i++){
+                for(int j=i+1;j<6;j++){
+                    if(numbers[i]>numbers[j]){
+                        temp=numbers[j];
+                        numbers[j]=numbers[i];
+                        numbers[i]=temp;
+                    }
+                }
+
+            }
+            //array.sort로 대체가능
+
             for(int i=0;i<6;i++){
                 System.out.printf("%d: %d\n",i+1,numbers[i]);
             }
@@ -77,9 +91,9 @@ public class Main {
 
     void J041() {
 
-        Lotto lotto = new Lotto(); // Instantiate a Lotto object
-        lotto.remakeAuto(); // Generate lotto numbers
-        lotto.printNumbers(); // Print the generated lotto numbers
+        Lotto lotto = new Lotto();
+        lotto.remakeAuto();
+        lotto.printNumbers();
 
 
     }
@@ -97,20 +111,16 @@ public class Main {
 
     void J043() {
         Lotto lotto = new Lotto();
-        System.out.println("Auto");
-        lotto.remakeAuto();
-        lotto.printNumbers();
-        System.out.println("Your Lotto number?");
-        lotto.remake();
-        System.out.println("User");
-        lotto.printNumbers();
 
-
+        Scanner in = new Scanner(System.in);//scanner in
         int[] userNumbers = new int[6];
         System.out.println("Enter your numbers:");
         for (int i = 0; i < 6; i++) {
-            userNumbers[i] = new Scanner(System.in).nextInt();
+            userNumbers[i] = in.nextInt();
         }
+        System.out.println("Auto");
+        lotto.remakeAuto();
+        lotto.printNumbers();
 
         int matchedNumbers = lotto.checkLotto(userNumbers);
         System.out.println("You matched " + matchedNumbers + " numbers.");
@@ -122,7 +132,7 @@ public class Main {
         }
 
         public void make(int length) {
-            // 주어진 길이를 갖는 암호 문자열 출력하기
+
             String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+";
 
             Random random = new Random();
@@ -136,22 +146,20 @@ public class Main {
         }
 
         public void makeCode(int length1, int length2) {
-            // 코드 형식: 알파벳 대문자와 숫자로 구성된 랜덤 코드 생성
             StringBuilder code = new StringBuilder();
             Random random = new Random();
 
-            // 알파벳 부분 생성
+
             for (int i = 0; i < length1; i++) {
-                int index = random.nextInt(26); // 알파벳은 26개
-                char c = (char) ('A' + index); // 대문자 알파벳 생성
+                int index = random.nextInt(26);
+                char c = (char) ('A' + index);
                 code.append(c);
             }
 
-            code.append("-"); // 구분자 추가
+            code.append("-");
 
             // 숫자 부분 생성
             if (length2 > 0) {
-                // 숫자 부분의 첫 자리에 1 이상의 숫자가 오도록 함
                 int firstDigit = 1 + random.nextInt(9);
                 code.append(firstDigit);
 
@@ -168,7 +176,7 @@ public class Main {
 
     void J044() {
         MakePW makePW = new MakePW();
-        int length = 10; // 비밀번호의 길이 (원하는 값으로 변경 가능)
+        int length = 10;
         makePW.make(length);
     }
 
