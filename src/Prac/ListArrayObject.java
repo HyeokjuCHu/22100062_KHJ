@@ -1,19 +1,17 @@
 package Prac;
 
-
 public class ListArrayObject {
-    Object[] array = null;
+    private Object[] array;
 
     public ListArrayObject() {
         array = new Object[0];
     }
 
     public void add(Object o) {
-        Object[] newArray = new Object[size() + 1];
-        newArray = array;
-        array = new Object[size() + 1];
+        Object[] newArray = new Object[array.length + 1];
+        System.arraycopy(array, 0, newArray, 0, array.length);
+        newArray[array.length] = o;
         array = newArray;
-        array[size() - 1] = o;
     }
 
     public Object get(int index) {
@@ -27,32 +25,20 @@ public class ListArrayObject {
     public void remove(int index) {
         if (isNull(index)) {
             return;
-        } else {
-            Object[] deleteArray = new Object[size()];
-            for (int i = 0; i < size(); i++) {
-                deleteArray[i] = array[i];
-            }
-            array = new Object[size() - 1];
-            int count = 0;
-            for (int i = 0; i < deleteArray.length; i++) {
-                if (i == index) {
-                    continue;
-                }
-                array[count++] = deleteArray[i];
-            }
         }
-
+        Object[] newArray = new Object[array.length - 1];
+        System.arraycopy(array, 0, newArray, 0, index);
+        System.arraycopy(array, index + 1, newArray, index, array.length - index - 1);
+        array = newArray;
     }
 
     public void remove() {
-        Object[] deleteArray = new Object[size()];
-        for (int i = 0; i < size(); i++) {  //same as deleteArray = array;
-            deleteArray[i] = array[i];
+        if (array.length == 0) {
+            return;
         }
-        array = new Object[size() - 1];
-        for (int i = 0; i < size(); i++) {
-            array[i] = deleteArray[i];
-        }
+        Object[] newArray = new Object[array.length - 1];
+        System.arraycopy(array, 0, newArray, 0, array.length - 1);
+        array = newArray;
     }
 
     public int size() {
@@ -60,14 +46,6 @@ public class ListArrayObject {
     }
 
     public boolean isNull(int index) {
-        if (index > -1 && index < array.length) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public static void main(String args[]) {
-
+        return index < 0 || index >= array.length;
     }
 }
