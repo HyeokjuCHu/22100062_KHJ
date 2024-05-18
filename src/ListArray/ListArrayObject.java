@@ -1,4 +1,4 @@
-package Prac;
+package ListArray;
 
 public class ListArrayObject {
     private Object[] array;
