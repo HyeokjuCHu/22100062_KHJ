@@ -2,11 +2,12 @@ package week14;
 
 import java.io.*;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class Main {
     public static void main(String[] args) {
         week14.Main pStudio = new week14.Main();
-        pStudio.J091();
+        pStudio.J092();
     }
 
     class Score {
@@ -205,6 +206,110 @@ public class Main {
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    class ParkingInfo {
+        private String carNumber;
+        private String carType;
+        private Date enterTime;
+
+        public ParkingInfo(String carNumber, String carType, Date enterTime) {
+            this.carNumber = carNumber;
+            this.carType = carType;
+            this.enterTime = enterTime;
+        }
+
+        public String getCarNumber() {
+            return carNumber;
+        }
+
+        public String getCarType() {
+            return carType;
+        }
+
+        public Date getEnterTime() {
+            return enterTime;
+        }
+    }
+    class ParkingLot {
+        private LinkedHashMap<String, ParkingInfo> parkingMap = new LinkedHashMap<>();
+        private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd HHmm");
+
+        public void enter(String carNumber, String carType) {
+            Date now = new Date();
+            ParkingInfo info = new ParkingInfo(carNumber, carType, now);
+            parkingMap.put(carNumber, info);
+        }
+
+        public void exit(String carNumber) {
+            ParkingInfo info = parkingMap.remove(carNumber);
+            if (info != null) {
+                Date now = new Date();
+                long duration = now.getTime() - info.getEnterTime().getTime();
+                long minutes = (duration / (1000 * 60));
+                long fee = (minutes < 10) ? 0 : ((minutes / 10) + 1) * 500;
+
+                System.out.println(info.getCarNumber() + " " + info.getCarType() + " " + minutes + "min, Parking fee " + fee + " (current time " + dateFormat.format(now) + ")");
+            } else {
+                System.out.println("해당 차량번호가 없습니다.");
+            }
+        }
+
+        public void list() {
+            if (parkingMap.isEmpty()) {
+                System.out.println("주차된 차량이 없습니다.");
+            } else {
+                System.out.println("===================================================");
+                System.out.println("num\t\t\ttype\t\ttime");
+                int i = 1;
+                for (ParkingInfo info : parkingMap.values()) {
+                    System.out.printf("[%d]\t%s\t%s\t\t%s\n", i, info.getCarNumber(), info.getCarType(), dateFormat.format(info.getEnterTime()));
+                    i++;
+                }
+            }
+        }
+
+        public void quit() {
+            System.out.println("Bye!");
+            System.exit(0);
+        }
+    }
+
+
+
+
+    void J092(){
+        ParkingLot parkingLot = new ParkingLot();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("1) enter, 2) exit, 3) list 4) quit > ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume the newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter number, type > ");
+                    String carNumber = scanner.next();
+                    String carType = scanner.next();
+                    parkingLot.enter(carNumber, carType);
+                    break;
+                case 2:
+                    System.out.print("Enter car number to exit > ");
+                    String exitCarNumber = scanner.nextLine();
+                    parkingLot.exit(exitCarNumber);
+                    break;
+                case 3:
+                    parkingLot.list();
+                    break;
+                case 4:
+                    parkingLot.quit();
+                    break;
+                default:
+                    System.out.println("Wrong input");
+                    break;
             }
         }
     }
