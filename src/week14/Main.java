@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class Main {
     public static void main(String[] args) {
         week14.Main pStudio = new week14.Main();
-        pStudio.J092();
+        pStudio.J091();
     }
 
     class Score {
