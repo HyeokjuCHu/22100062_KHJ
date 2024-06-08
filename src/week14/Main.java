@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class Main {
     public static void main(String[] args) {
         week14.Main pStudio = new week14.Main();
-        pStudio.J091();
+        pStudio.J092();
     }
 
     class Score {
@@ -287,7 +287,7 @@ public class Main {
         while (true) {
             System.out.print("1) enter, 2) exit, 3) list 4) quit > ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume the newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -313,4 +313,56 @@ public class Main {
             }
         }
     }
+
+    class MapHashArray {
+        private String[] keys;
+        private Object[] values;
+        private int size;
+
+        public MapHashArray() {
+            keys = new String[100];
+            values = new Object[100];
+            size = 0;
+        }
+
+        public void put(String key, Object value) {
+            for (int i = 0; i < size; i++) {
+                if (keys[i].equals(key)) {
+                    values[i] = value;
+                    return;
+                }
+            }
+            keys[size] = key;
+            values[size] = value;
+            size++;
+        }
+
+        public Object get(String key) {
+            for (int i = 0; i < size; i++) {
+                if (keys[i].equals(key)) {
+                    return values[i];
+                }
+            }
+            return null;
+        }
+
+        public void remove(String key) {
+            for (int i = 0; i < size; i++) {
+                if (keys[i].equals(key)) {
+                    keys[i] = keys[size - 1];
+                    values[i] = values[size - 1];
+                    size--;
+                    keys[size] = null;
+                    values[size] = null;
+                    return;
+                }
+            }
+        }
+
+        public int size() {
+            return size;
+        }
+
+    }
+
 }

@@ -1,12 +1,12 @@
 package week14.j093;
 
-// SimpleChat Client
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class ChatClient {
 
@@ -32,6 +32,8 @@ public class ChatClient {
             it.start();
             String line = null;
             while((line = keyboard.readLine()) != null){
+                String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                System.out.println("[" + currentTime + "] " + args[0] + " : " + line);
                 pw.println(line);
                 pw.flush();
                 if(line.equals("/quit")){
@@ -71,7 +73,8 @@ class InputThread extends Thread{
         try{
             String line = null;
             while((line = br.readLine()) != null){
-                System.out.println(line);
+                String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                System.out.println("[" + currentTime + "] " + line);
             }
         }catch(Exception ex){
         }finally{
