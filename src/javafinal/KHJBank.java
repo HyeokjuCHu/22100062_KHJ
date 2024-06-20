@@ -14,7 +14,7 @@ public class KHJBank {
     public static void main(String[] args) {
         boolean isRunning = true;
 
-        while (isRunning) {
+        while (isRunning) { 
             boolean isLoggedIn = false;
             while (!isLoggedIn) {
                 System.out.println("-------------------------------------");
